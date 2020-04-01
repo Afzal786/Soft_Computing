@@ -1,2 +1,2 @@
 # Soft_Computing
-This Repository contains Assigments of Soft Computing.
+This Repository contains Assigments of Soft Computing subject.
