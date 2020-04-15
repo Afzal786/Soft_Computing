@@ -1,0 +1,77 @@
+[System]
+Name='CovidM'
+Type='mamdani'
+Version=2.0
+NumInputs=6
+NumOutputs=1
+NumRules=10
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Fever'
+Range=[96 106]
+NumMFs=3
+MF1='Mild_fever':'gaussmf',[1.7 95.7698412698413]
+MF2='avg_fever':'gauss2mf',[1.04 100 1.04 101.481842782933]
+MF3='High_fever':'gaussmf',[1.7 106.005291005291]
+
+[Input2]
+Name='Nausea'
+Range=[0 1]
+NumMFs=2
+MF1='Nausea-':'trapmf',[-1.85 -1.19 0.0821 0.741]
+MF2='Nausea+':'trapmf',[0.09711 1.024 1.268 2.292]
+
+[Input3]
+Name='ChestPain'
+Range=[0 1]
+NumMFs=2
+MF1='chestpain-':'gauss2mf',[0.2591 -0.195 0.2591 0.195]
+MF2='chestpain+':'gauss2mf',[0.2591 0.805 0.2591 1.195]
+
+[Input4]
+Name='Fatigue'
+Range=[0 1]
+NumMFs=2
+MF1='fatigue-':'gauss2mf',[0.3397 -0.1 0.3397 0.1]
+MF2='fatigue+':'gauss2mf',[0.3397 0.9 0.3397 1.1]
+
+[Input5]
+Name='Breathlessness'
+Range=[0 1]
+NumMFs=2
+MF1='B-':'gauss2mf',[0.3397 -0.1 0.3397 0.1]
+MF2='B+':'gauss2mf',[0.3397 0.9 0.3397 1.1]
+
+[Input6]
+Name='Cough'
+Range=[0 1]
+NumMFs=3
+MF1='NoCough':'trapmf',[-0.45 -0.05 0.05 0.45]
+MF2='DryCough':'trapmf',[0.05 0.45 0.55 0.95]
+MF3='MucusCough':'trapmf',[0.55 0.95 1.05 1.45]
+
+[Output1]
+Name='output4'
+Range=[0 1]
+NumMFs=4
+MF1='Normal':'gauss2mf',[0.08639 -0.065 0.08639 0.065]
+MF2='Influenza':'gauss2mf',[0.08639 0.2683 0.08639 0.3983]
+MF3='Pneumonia':'gauss2mf',[0.08639 0.6017 0.08639 0.7317]
+MF4='Covid19':'gauss2mf',[0.0637223183309332 0.916666666666667 0.0864 1.07]
+
+[Rules]
+1 1 1 1 1 1, 1 (1) : 1
+1 2 1 2 2 2, 4 (1) : 1
+1 1 2 2 2 3, 3 (1) : 1
+1 2 1 2 1 2, 2 (1) : 1
+1 2 1 2 1 3, 2 (1) : 1
+2 2 1 2 2 2, 4 (1) : 1
+3 2 1 2 2 2, 4 (1) : 1
+2 1 2 2 2 3, 3 (1) : 1
+3 1 2 2 2 3, 3 (1) : 1
+1 1 1 1 1 1, 1 (1) : 1
