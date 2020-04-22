@@ -10,9 +10,9 @@ Method to run Codes
 
 2. PCA face recognition 
 
-   Upload the images present in the zip file in a folder named as Images then run the code.
+   Upload the images present in the zip file in a folder named as Images then run the code. If you are trying to run it on colab first upload the zip file of Images folder then unzip it there and then run the code.
 
 3. PCA + LDA face recognition
 
-   Upload the images present in the zip file in a folder named as Images then run the code.
+   Upload the images present in the zip file in a folder named as Images then run the code. If you are trying to run it on colab first upload the zip file of Images folder then unzip it there and then run the code.
    
